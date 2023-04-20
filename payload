@@ -10,3 +10,30 @@ function c {
    git commit
 }
 
+function fcp {
+   git fetch origin
+   git checkout main
+   git pull
+}
+
+function nb {
+   git checkout -b ${1}
+}
+
+function pbcopy {
+   xclip -i -selection "clipboard"
+}
+
+function pbpaste {
+   xclip -o -selection "clipboard"
+}
+
+#clear docker containers
+function cdc {
+   docker ps -aq | xargs docker stop | xargs docker rm
+}
+
+function cdi {
+   docker images | awk '{ print $3 }' | xargs docker rmi
+}
+
