@@ -1,5 +1,8 @@
 #!/bin/bash
+set -euo pipefail
 
-cat payload >> ~/.bashrc
-source ~/.bashrc
+TARGET_FILE="~/.bashrc"
+
+cat payload >> ${TARGET_FILE} 
+source ${TARGET_FILE} 
 
