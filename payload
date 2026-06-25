@@ -30,3 +30,6 @@ function cdi {
    docker images | awk '{ print $3 }' | xargs docker rmi
 }
 
+function ac {
+   python3 /Users/${USER}/git/personal-terminal-helpers/auto_commit.py
+}
