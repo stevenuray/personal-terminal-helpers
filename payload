@@ -33,3 +33,18 @@ function cdi {
 function ac {
    python3 /Users/${USER}/git/personal-terminal-helpers/auto_commit.py
 }
+
+#set env var without the value entering command history
+function sev {
+   if [[ -z "${1}" ]]; then
+      echo "usage: sev ENV_VAR_NAME"
+      return 1
+   fi
+   local value
+   read -rs "value?Enter value for ${1}: "
+   echo
+   export ${1}="${value}"
+}
+
+alias k=kubectx
+
