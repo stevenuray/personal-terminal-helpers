@@ -46,5 +46,15 @@ function sev {
    export ${1}="${value}"
 }
 
+function sevpw {
+   # store it once (-w with no value makes it prompt for the password, so it isn't on the command line)
+   security add-generic-password -a "$USER" -s "${1}" -w
+}
+
+function sevpr {
+   # load it later, e.g. in ~/.zshrc
+   export ${2}="$(security find-generic-password -a "$USER" -s ${1} -w)"
+}
+
 alias k=kubectx
 
